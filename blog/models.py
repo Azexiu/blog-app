@@ -20,7 +20,6 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    published_date = models.DateTimeField(auto_now_add=True)
 
     author = models.ForeignKey(
         Author,
@@ -33,9 +32,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-    class Meta:
-        ordering = ['-published_date']
 
     def clean(self):
         if len(self.title) < 5:

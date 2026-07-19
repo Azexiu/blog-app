@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Mi Blog
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+    <nav>
+        {% block nav %}
+            <a href="/">Inicio</a> |
+            <a href="/posts/">Posts</a> |
+            <a href="/admin/">Admin</a>
+        {% endblock %}
+    </nav>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
