@@ -1,0 +1,41 @@
+<header class="site-header">
+
+  <nav class="navbar">
+
+    <div class="brand">
+      <span class="site-name">{{ nombre_sitio }}</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="{% url 'blog:home' %}">Inicio</a>
+      <a href="{% url 'blog:post_list' %}">Posts</a>
+      <a href="{% url 'blog:post_create' %}">Nuevo Post</a>
+      <a href="{% url 'blog:search_authors' %}">Buscar autores</a>
+      <a href="/admin/">Admin</a>
+    </div>
+
+    <div class="auth-section">
+
+      {% if user.is_authenticated %}
+
+        <span class="user-greeting">
+          Hola {{ user.username }}
+        </span>
+
+        <form action="{% url 'blog:logout' %}" method="post" class="logout-form">
+          {% csrf_token %}
+          <button type="submit" class="logout-btn">Salir</button>
+        </form>
+
+      {% else %}
+
+        <a href="{% url 'blog:login' %}">Login</a>
+        <a href="{% url 'blog:register' %}">Registro</a>
+
+      {% endif %}
+
+    </div>
+
+  </nav>
+
+</header>

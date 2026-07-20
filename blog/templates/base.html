@@ -1,27 +1,14 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>
-        {% block title %}
-            Mi Blog
-        {% endblock %}
-    </title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %} Mi Blog {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}" />
+  </head>
+  <body>
+    {% include 'blog/partials/header.html' %}
 
-    <nav>
-        {% block nav %}
-            <a href="/">Inicio</a> |
-            <a href="/posts/">Posts</a> |
-            <a href="/admin/">Admin</a>
-        {% endblock %}
-    </nav>
-
-    <hr>
-
-    {% block content %}
-    {% endblock %}
-
-</body>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
 </html>
