@@ -47,11 +47,6 @@ urlpatterns = [
         name="post_delete"
     ),
     path(
-    "",
-    HomeView.as_view(),
-    name="home"
-    ),
-    path(
     "buscar/",
     buscar_autores, 
     name="search_authors"
